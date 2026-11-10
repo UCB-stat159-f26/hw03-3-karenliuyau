@@ -1,0 +1,15 @@
+Package: tennismatchr
+Title: Tennis Career Match Analysis
+Version: 0.1.0
+Authors@R: person("Karen", "Liu Yau", role = c("aut", "cre"), email = "karenliuyau@berkeley.edu")
+Description: Retrieves professional tennis match data from Tennis Abstract
+    and creates scatter plots comparing player ages with opponent ages.
+License: MIT
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    jsonlite,
+    ggplot2
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
