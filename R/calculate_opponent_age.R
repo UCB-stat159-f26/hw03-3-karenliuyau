@@ -9,7 +9,15 @@ calculate_opponent_age = function(match_dates, field17, gender) {
   }
 
   opponent_dob = as.Date(field17, format = "%Y%m%d")
-  match_dates = as.Date(match_dates)
+  dates = as.character(match_dates)
+
+  match_dates = as.Date(dates, format = "%Y%m%d")
+  missing_dates = is.na(match_dates)
+
+  match_dates[missing_dates] = as.Date(
+    dates[missing_dates],
+    format = "%Y-%m-%d"
+  )
 
   age = as.numeric(match_dates - opponent_dob) / 365.25
 
