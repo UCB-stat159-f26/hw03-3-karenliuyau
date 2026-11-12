@@ -1,0 +1,10 @@
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# R temporary files
+.Rhistory
+.RData
+.Rcheck/
+.Rproj.user/
+serena_hw3_test.png
