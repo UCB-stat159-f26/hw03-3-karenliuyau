@@ -8,7 +8,7 @@ NULL
 #' @param data A data frame returned by data_function().
 #' @return A ggplot object.
 #' @export
-plot_function = function(data) {
+plot_career_matches = function(data) {
   required = c("player_age", "age_difference", "result")
   if (!is.data.frame(data) || !all(required %in% names(data))) {
     stop("Input must contain player_age, age_difference, and result.")
@@ -23,12 +23,12 @@ plot_function = function(data) {
   if (nrow(data) == 0) stop("No valid matches to plot.")
   data$result = factor(data$result, levels = c("W", "L"))
   p = ggplot2::ggplot(data, ggplot2::aes(
-    x = .data$player_age, y = -.data$age_difference, color = .data$result
+    x = .data$player_age, y = .data$age_difference, color = .data$result
   ))
-  p + tennis_plot_layers() + tennis_plot_style()
+  p + tennis_plot_layers() + tennis_plot_axes() + tennis_plot_style()
 }
 
-# Add the scatter plot and legend
+# Private helper: points and legend
 tennis_plot_layers = function() {
   list(
     ggplot2::geom_point(size = 1.15, alpha = 0.9),
@@ -38,7 +38,13 @@ tennis_plot_layers = function() {
       values = c("W" = "#40BFE5", "L" = "#96358D"),
       labels = c("Match won", "Match lost"),
       name = NULL
-    ),
+    )
+  )
+}
+
+# Private helper: axes
+tennis_plot_axes = function() {
+  list(
     ggplot2::scale_x_continuous(position = "top"),
     ggplot2::scale_y_continuous(
       breaks = c(-20, -10, 0, 10, 20),
@@ -47,7 +53,7 @@ tennis_plot_layers = function() {
   )
 }
 
-# Add labels and graph styling
+# Private helper: titles and theme
 tennis_plot_style = function() {
   list(
     ggplot2::labs(
@@ -57,19 +63,18 @@ tennis_plot_style = function() {
       caption = "Source: Tennis Abstract"
     ),
     ggplot2::theme_minimal(base_size = 12),
-    ggplot2::theme(
-      plot.title = ggplot2::element_text(
-        face = "bold", hjust = 0.5, size = 16
-      ),
-      legend.position = "top",
-      panel.grid.minor = ggplot2::element_blank(),
-      panel.grid.major = ggplot2::element_line(
-        color = "gray90", linewidth = 0.35
-      ),
-      axis.text = ggplot2::element_text(color = "gray55"),
-      plot.caption = ggplot2::element_text(
-        color = "gray55", size = 8
-      )
-    )
+    tennis_plot_theme()
+  )
+}
+
+# Private helper: visual formatting
+tennis_plot_theme = function() {
+  ggplot2::theme(
+    plot.title = ggplot2::element_text(face = "bold", hjust = 0.5, size = 16),
+    legend.position = "top",
+    panel.grid.minor = ggplot2::element_blank(),
+    panel.grid.major = ggplot2::element_line(color = "gray90", linewidth = 0.35),
+    axis.text = ggplot2::element_text(color = "gray55"),
+    plot.caption = ggplot2::element_text(color = "gray55", size = 8)
   )
 }

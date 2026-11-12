@@ -1,3 +1,6 @@
 ^LICENSE\.md$
 ^serena_hw3_test\.png$
 ^instructions\.md$
+^\.ipynb_checkpoints$
+^.*[/\\]\.ipynb_checkpoints$
+^figures$

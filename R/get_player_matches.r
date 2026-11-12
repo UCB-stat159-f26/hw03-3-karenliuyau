@@ -1,35 +1,22 @@
 #' Get a tennis player's career matches
-#' @param player_name Name of the tennis player
-#' @return A data frame of career matches
-#' @export
+#' @param player_name Name of the tennis player.
+#' @return A list of career match records.
 get_player_matches = function(player_name) {
-    player = normalize_player_name(player_name)
+  player = normalize_player_name(player_name)
 
-    for (gender in c("W", "M")) {
-        url = paste0(
-            "https://www.tennisabstract.com/",
-            if (gender == "W") "jsmatches/" else "charting/meta.csv"
-        )
-        if (gender == "W") {
-            url = paste0(url, player, "Career.js")
-        } else {
-            url = paste0(
-                "https://www.tennisabstract.com/jsmatches/",
-                player, "Career.js"
-            )
-        }
+  url = paste0(
+    "https://www.tennisabstract.com/jsmatches/",
+    player, "Career.js"
+  )
 
-        js = tryCatch(
-            readLines(url, warn = FALSE),
-            error = function(e) NULL
-        )
-        if (!is.null(js)) break
-    }
+  js = tryCatch(
+    suppressWarnings(readLines(url, warn = FALSE)),
+    error = function(e) NULL
+  )
 
-    if (is.null(js)) {
-        stop("Player not found. Please check the name.")
-    }
+  if (is.null(js) || length(js) == 0) {
+    stop("Player not found. Please check the name.")
+  }
 
-    matches = parse_career_js(js)
-    return(matches)
+  parse_career_js(js)
 }

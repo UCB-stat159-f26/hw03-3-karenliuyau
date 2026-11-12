@@ -7,10 +7,10 @@
 get_player_matches(player_name)
 }
 \arguments{
-\item{player_name}{Name of the tennis player}
+\item{player_name}{Name of the tennis player.}
 }
 \value{
-A data frame of career matches
+A list of career match records.
 }
 \description{
 Get a tennis player's career matches
