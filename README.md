@@ -148,8 +148,9 @@ These plots show the age differences between each player and their opponents thr
 ## Package Structure
 
 ```text
+
 hw03-3-karenliuyau/
-|-- R/ 
+|-- R/
 |   |-- calculate_opponent_age.R
 |   |-- clean_matches.R
 |   |-- detect_player_gender.R
@@ -165,8 +166,9 @@ hw03-3-karenliuyau/
 |   |   |-- test-calculate-opponent-age.R
 |   |   |-- test-clean-matches.R
 |   |   |-- test-detect-player-gender.R
-        |-- test-get-career-data.R
+|   |   |-- test-get-career-data.R
 |   |   |-- test-get-match-field.R
+|   |   |-- test-get-player-birth-date.R
 |   |   |-- test-normalize-player-name.R
 |   |   |-- test-parse-career-js.R
 |   |   |-- test-plot-career-matches.R
@@ -175,14 +177,13 @@ hw03-3-karenliuyau/
 |-- figures/
 |   |-- serena_final.png
 |   |-- rafa_final.png
-|   |-- serena_installed.png
-|   |-- rafa_installed.png
 |-- DESCRIPTION
 |-- NAMESPACE
 |-- LICENSE
 |-- LICENSE.md
 |-- instructions.md
 |-- README.md
+
 ```
 
 - `R/` contains the functions used to download, clean, process, and visualize tennis match data.
