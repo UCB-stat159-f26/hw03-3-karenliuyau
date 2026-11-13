@@ -165,6 +165,7 @@ hw03-3-karenliuyau/
 |   |   |-- test-calculate-opponent-age.R
 |   |   |-- test-clean-matches.R
 |   |   |-- test-detect-player-gender.R
+        |-- test-get-career-data.R
 |   |   |-- test-get-match-field.R
 |   |   |-- test-normalize-player-name.R
 |   |   |-- test-parse-career-js.R
