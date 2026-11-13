@@ -1,3 +1,4 @@
+
 test_that("get_career_data processes female matches", {
   fake_matches = list(
     c("19951030", "Canadian Open", "Carpet", "W", "L",
@@ -15,14 +16,36 @@ test_that("get_career_data processes female matches", {
   expect_s3_class(result, "data.frame")
   expect_equal(nrow(result), 1)
   expect_equal(ncol(result), 8)
+
+  expect_named(
+    result,
+    c(
+      "match_date",
+      "tournament",
+      "surface",
+      "result",
+      "opponent",
+      "opponent_age",
+      "player_age",
+      "age_difference"
+    )
+  )
+
   expect_equal(result$result, "L")
   expect_equal(result$opponent, "Anne Miller")
+
+  expected_opponent_age = as.numeric(
+    as.Date("1995-10-30") - as.Date("1977-01-19")
+  ) / 365.25
+
+  expect_equal(result$opponent_age, expected_opponent_age)
 
   expected_age = as.numeric(
     as.Date("1995-10-30") - as.Date("1981-09-26")
   ) / 365.25
 
   expect_equal(result$player_age, expected_age)
+
   expect_equal(
     result$age_difference,
     result$player_age - result$opponent_age
@@ -47,6 +70,7 @@ test_that("get_career_data processes male matches", {
   expect_s3_class(result, "data.frame")
   expect_equal(nrow(result), 1)
   expect_equal(result$opponent_age, 22.264202601)
+
   expect_equal(
     result$age_difference,
     result$player_age - result$opponent_age
