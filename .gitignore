@@ -8,3 +8,5 @@
 .Rcheck/
 .Rproj.user/
 serena_hw3_test.png
+
+/figures/*_check.png
