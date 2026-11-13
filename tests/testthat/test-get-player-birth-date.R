@@ -9,6 +9,16 @@ test_that("get_known_birth_date returns known dates", {
     as.Date("1986-06-03")
   )
 
+  expect_equal(
+    get_known_birth_date("RogerFederer"),
+    as.Date("1981-08-08")
+  )
+
+  expect_equal(
+    get_known_birth_date("MariaSharapova"),
+    as.Date("1987-04-19")
+  )
+
   expect_null(get_known_birth_date("UnknownPlayer"))
 })
 
