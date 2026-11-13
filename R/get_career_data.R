@@ -4,8 +4,7 @@
 #' @return A data frame containing career match data and age differences.
 #' @export
 get_career_data = function(player_name) {
-  name = normalize_player_name(player_name)
-
+    
   matches = tryCatch(
     get_player_matches(player_name),
     error = function(e) stop("Player not found. Please check the name.")
