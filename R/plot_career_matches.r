@@ -5,7 +5,7 @@ NULL
 
 #' Plot tennis matches by player age
 #'
-#' @param data A data frame returned by data_function().
+#' @param data A data frame returned by get_career_data().
 #' @return A ggplot object.
 #' @export
 plot_career_matches = function(data) {

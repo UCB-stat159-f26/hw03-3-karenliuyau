@@ -7,7 +7,7 @@
 plot_career_matches(data)
 }
 \arguments{
-\item{data}{A data frame returned by data_function().}
+\item{data}{A data frame returned by get_career_data().}
 }
 \value{
 A ggplot object.
