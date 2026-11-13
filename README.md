@@ -139,17 +139,24 @@ These plots show the age differences between each player and their opponents thr
 hw03-3-karenliuyau/
 |-- R/ 
 |   |-- calculate_opponent_age.R
-|   |-- clean_matches.r
-|   |-- detect_player_age.r
-|   |-- get_career_data.r
+|   |-- clean_matches.R
+|   |-- detect_player_gender.R
+|   |-- get_career_data.R
 |   |-- get_match_field.R
-|   |-- get_player_birth_date.r
-|   |-- get_player_matches.r
+|   |-- get_player_birth_date.R
+|   |-- get_player_matches.R
 |   |-- normalize_player_name.R
 |   |-- parse_career_js.R
-|   |-- plot_career_matches.r
+|   |-- plot_career_matches.R
 |-- tests/
 |   |-- testthat/
+|   |   |-- test-calculate-opponent-age.R
+|   |   |-- test-clean-matches.R
+|   |   |-- test-detect-player-gender.R
+|   |   |-- test-get-match-field.R
+|   |   |-- test-normalize-player-name.R
+|   |   |-- test-parse-career-js.R
+|   |   |-- test-plot-career-matches.R
 |   |-- testthat.R
 |-- man/
 |-- figures/
@@ -165,12 +172,13 @@ hw03-3-karenliuyau/
 |-- README.md
 ```
 
-- `R/` contains the functions used to retrieve, clean, process, and plot tennis match data.
-- `tests/` contains automated tests for the package.
-- `man/` contains the function documentation.
-- `figures/` contains example plots.
-- `DESCRIPTION` contains package information and dependencies.
-- `NAMESPACE` identifies the exported functions.
+- `R/` contains the functions used to download, clean, process, and visualize tennis match data.
+- `tests/testthat/` contains automated tests for individual functions, including match cleaning, player gender detection, age calculations, and plotting.
+- `man/` contains documentation generated for the package functions.
+- `figures/` contains example scatter plots created using the package.
+- `DESCRIPTION` contains package information, dependencies, and version details.
+- `NAMESPACE` identifies the functions exported by the package.
+- `LICENSE` and `LICENSE.md` contain the package licensing information.
 - `README.md` explains how to install and use the package.
 
 ## Data Processing
@@ -190,27 +198,13 @@ The player's age is calculated using their date of birth and the match date. The
 
 ## Testing
 
-The package uses `testthat` to test its data processing functions.
+I used the `testthat` package to test the functions in my R package. Instead of testing only the final plots, I also tested the individual functions used to process the tennis match data.
 
-The tests focus on processing sample tennis match records without making live requests to Tennis Abstract.
+My tests cover player name formatting, extracting match information, parsing JavaScript data, calculating opponent ages, cleaning match data, detecting player gender, and creating scatter plots.
 
-The tests include checking player name formatting, extracting match fields, parsing JavaScript match data, and calculating opponent ages.
+I also checked how the package handles invalid player names and tested the two main functions using Serena Williams and Rafael Nadal.
 
-To run the tests from the package directory:
-
-```r
-devtools::test()
-```
-
-To check the package:
-
-```r
-devtools::check()
-```
-
-During development, all 28 tests passed. The package check returned 0 errors, 0 warnings, and 1 note about file timestamps.
-
-I also tested installing the package directly from GitHub and confirmed that both public functions worked for Serena Williams and Rafael Nadal.
+I ran `devtools::test()` and `devtools::check()` to verify that my package works correctly. All automated tests passed. The most recent package check reported zero errors, zero warnings, and one note related to verifying the current time in the JupyterLab environment.
 
 ## Tools and Packages
 
