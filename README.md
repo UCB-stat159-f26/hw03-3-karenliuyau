@@ -107,7 +107,19 @@ Create the scatter plot:
 plot_career_matches(rafa)
 ```
 
-### Example 3: Invalid Player Name
+### Example 3: Venus Williams
+
+The package can also retrieve and plot career matches for other players, such as Venus Williams.
+
+```r
+venus = get_career_data("Venus Williams")
+
+head(venus)
+
+plot_career_matches(venus)
+```
+
+### Example 4: Invalid Player Name
 
 If the user enters a player who cannot be found, the package returns a meaningful error message.
 
@@ -202,7 +214,7 @@ I used the `testthat` package to test the functions in my R package. Instead of 
 
 My tests cover player name formatting, extracting match information, parsing JavaScript data, calculating opponent ages, cleaning match data, detecting player gender, and creating scatter plots.
 
-I also checked how the package handles invalid player names and tested the two main functions using Serena Williams and Rafael Nadal.
+I also checked how the package handles invalid player names. I tested the two main functions using Serena Williams and Rafael Nadal, and I successfully retrieved career match data for Venus Williams, Roger Federer, and Novak Djokovic. This helped me check that my package works with different players instead of only the two examples from the assignment.
 
 I ran `devtools::test()` and `devtools::check()` to verify that my package works correctly. All automated tests passed. The most recent package check reported zero errors, zero warnings, and one note related to verifying the current time in the JupyterLab environment.
 
