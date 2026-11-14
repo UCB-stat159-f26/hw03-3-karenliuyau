@@ -1,0 +1,42 @@
+# AI Documentation
+
+Tool: ChatGPT, OpenAI, GPT-6  
+Accessed: November 2026
+
+## How I used AI
+
+I used ChatGPT as a learning and coding assistant while completing Homework 3. Since this homework was a continuation of Homework 2, I already had some experience working with the tennis match data and creating scatter plots in R. However, I was not familiar with creating an R package, so I mainly used ChatGPT to help me understand the instructions, organize my code, explain errors, and check my work.
+
+1. I asked ChatGPT for help understanding how to turn my Homework 2 code into an R package. I wanted to understand the purpose of the different files and folders, such as "R", "tests", "man", "DESCRIPTION", and "NAMESPACE". I also asked how to organize my functions so that other people could install and use my package.
+
+2. While working on the data processing functions, I asked ChatGPT to help me understand how to make my code work for different tennis players instead of only Serena Williams. One challenge was that female and male players had different formats for their opponents' ages in the Tennis Abstract data. I asked for explanations about how to calculate the ages correctly and how to handle different player names and missing data. I also shared my code and asked ChatGPT to check whether my functions were correct.
+
+3. I used ChatGPT to help me review the scatter plots created by my "plot_career_matches()" function. I wanted to make sure the age differences were calculated in the correct direction and that the colors, labels, and axes were correct. I ran the code myself and checked the plots for Serena Williams and Rafael Nadal.
+
+4. I asked ChatGPT for help understanding how to write automated tests using "testthat". I was not familiar with testing individual functions, so I asked for explanations about "test_that()", "expect_equal()", "expect_error()", and "local_mocked_bindings()". I shared my test code and asked ChatGPT to check whether the tests were correct. I also asked how to test different situations, such as female and male match data, missing players, and empty match records.
+
+   Example prompts included:
+   - "Is this right?"
+   - "How to find out if my tests are working?"
+   - "What does this error mean?"
+
+5. I used ChatGPT to help me understand terminal commands and how to check my R package. I ran "devtools::test()" and "devtools::check()" myself and shared screenshots of the results. When I received an error because I was not inside the package directory, I asked for help understanding what went wrong. I also asked ChatGPT to explain the results of the package check, including the difference between errors, warnings, and notes.
+
+6. I asked ChatGPT for help reviewing my README and GitHub repository. I wanted to make sure my README explained how to install the package, use the functions, and understand the example plots. I also asked for help identifying unnecessary files and fixing the package structure listing. I used Git commands to commit and push my changes to GitHub. After that, I installed my package directly from GitHub and tested the two main functions to make sure they worked.
+
+   Example prompts included:
+   - "Guide me to fix this"
+
+## Human Verification
+
+I reviewed the suggestions from ChatGPT before using them in my homework. I worked on the R functions, organized my package files, and ran the code and terminal commands myself. When I received errors, I checked the explanations, made changes, and ran the commands again to see whether the problems were fixed.
+
+I also tested my package using "devtools::test()" and "devtools::check()". All 82 automated tests passed, and the package check reported zero errors, zero warnings, and one note related to the JupyterLab environment.
+
+I installed the package directly from GitHub and tested "get_career_data()" and "plot_career_matches()" using Serena Williams and Rafael Nadal. I also reviewed the README and example plots before submitting my work.
+
+ChatGPT helped me understand the problems and suggested ways to improve my code, but I checked the results and made the final decisions about my project. I take responsibility for the final code, tests, plots, documentation, and package files.
+
+## Data Protection
+
+I did not provide confidential research data or other protected research information to ChatGPT. The tennis match data used for this homework came from Tennis Abstract, which is a publicly available source. I mainly shared my R code, error messages, screenshots, and assignment questions when asking for help.
